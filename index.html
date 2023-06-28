@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="/fontawesome/css/all.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="navb-logo">
+                <img class="logo" src="/img/LogoPC.png" alt="Logo">
+            </div>
+            <div class="navb-items d-none d-xl-flex">
+                <div class="item">
+                    <a href="/">Inicio</a>
+                </div>
+                <div class="item">
+                    <a href="/services">Componentes</a>
+                </div>
+                <div class="item">
+                    <a href="/cases">Pc</a>
+                </div>
+                <div class="item">
+                    <a href="/about">Nosotros</a>
+                </div>
+                <div class="item-button">
+                    <a href="/contact" type="button">Contacto</a>
+                </div>
+            </div>
+            <!-- Button trigger modal -->
+            <div class="mobile-toggler d-lg-none">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal">
+                    <i class="fa-solid fa-bars"></i>
+                </a>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="navbModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <img src="/img/LogoPC.png" alt="Logo">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+                        </div>
+                        <div class="modal-body">
+                            
+                            <div class="modal-line">
+                                <i class="fa-solid fa-house"></i><a href="/">Home</a>
+                            </div>
+                            <div class="modal-line">
+                                <i class="fa-solid fa-bell-concierge"></i><a href="/services">Services</a>
+                            </div>
+                            <div class="modal-line">
+                                <i class="fa-solid fa-file-lines"></i> <a href="/cases">Cases</a>
+                            </div>
+                            <div class="modal-line">
+                                <i class="fa-solid fa-circle-info"></i><a href="/about">About</a>
+                            </div>
+                            <a href="/contact" class="navb-button" type="button">Let's talk</a>
+                        </div>
+                        <div class="mobile-modal-footer">
+                            <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="diseños">
+        <section class="carrucel">
+            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <video src="./video/Arma tu pc.mp4" autoplay loop class="d-block w-100"></video>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="./img/mejora tu pc.png" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <video src="./video/perifericos.mp4" autoplay loop class="d-block w-100"></video>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="container sectionArmadas">
+            <div class="pcArmadas">
+                <p class="t1">Pc armadas</p>
+            </div>
+            <div class="cajasArmadas">
+                <div class="cajaPcArmadas">
+                    <p class="textoPcArmadas">Pc Básica</p>
+                    <video class="videosPc" autoplay loop src="./video/entrada.mp4"></video>
+                </div>
+                <div class="cajaPcArmadas">
+                    <p class="textoPcArmadas">Pc Media</p>
+                    <video class="videosPc" autoplay loop src="./video/media.mp4"></video>
+                </div>
+                <div class="cajaPcArmadas">
+                    <p class="textoPcArmadas">Pc Alta</p>
+                    <video class="videosPc" autoplay loop src="./video/alta.mp4"></video>
+                </div>
+            </div>
+        </section>
+        <section class="container sectionArmadas">
+            <div class="pcArmadas">
+                <p class="t1">Arma tu PC</p>
+            </div>
+            <div class="cajasArmadas">
+                <div class="cajaPcArmadas">
+                    <p class="textoPcArmadas">Pc Básica</p>
+                    <video class="videosPc" autoplay loop src="./video/up.mp4"></video>
+                </div>
+            </div>
+        </section>
+        <section class="container">
+            <div>
+                <img class="imagenContacto" src="./img/banner.png" alt="">
+            </div>
+        </section>
+    </main>
+    <footer>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-col">
+                        <h4>company</h4>
+                        <ul>
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">our services</a></li>
+                            <li><a href="#">privacy policy</a></li>
+                            <li><a href="#">affiliate program</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>get help</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">returns</a></li>
+                            <li><a href="#">order status</a></li>
+                            <li><a href="#">payment options</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>online shop</h4>
+                        <ul>
+                            <li><a href="#">watch</a></li>
+                            <li><a href="#">bag</a></li>
+                            <li><a href="#">shoes</a></li>
+                            <li><a href="#">dress</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>follow us</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js
+    "></script>
+</body>
+</html>

@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;600;700&display=swap');
+
+body{
+    font-family: 'Urbanist', sans-serif;
+    overflow-x: hidden;
+}
+
+/*header*/
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+a:hover{
+    color: currentColor;
+}
+
+header{
+    width: 100vw;
+    height: 100px;
+    background-color: #fff;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 25%);
+    display: flex;
+    align-items: center;
+    background-color: #24262b;
+}
+
+header .container-fluid{
+    width: 100%;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+}
+
+@media(max-width:992px){
+    header .container-fluid{
+        padding: 0 5%;
+    }
+}
+
+header .navb-logo img{
+    width: 9rem;
+    height: 6rem;
+}
+
+header .navb-items{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    letter-spacing: 3px;
+}
+
+header .item{
+    text-align: center;
+    margin-inline: 15%;
+    font-size: 20px;
+    letter-spacing: 3px;
+    color: white;
+    padding: 5px 0;
+    transition: all .1s ease;
+    border-bottom: 0px solid #64d6f4;
+    border-top: 0px solid #64d6f4;
+    cursor: pointer;
+}
+
+header .item:hover{
+    border-bottom: 3px solid #64d6f4;
+}
+
+header .item-button a{
+    background-color: #8F27E1;
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    transition: all .5s ease;
+}
+
+header .item-button a:hover{
+    background-color: #5e17eb;
+}
+
+header .mobile-toggler{
+    font-size: 30px;
+}
+
+/* modal */
+
+.modal-dialog{
+    margin: 0;
+    width: 430px;
+}
+
+@media(max-width: 450px){
+    .modal-dialog{
+        width: 82%;
+    }
+}
+
+.modal-content{
+    border-radius: 0;
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #5e17eb;
+}
+
+.modal-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 88%;
+    margin: 0 auto;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #fefefe;
+}
+
+.modal-header img{
+    width: 140px;
+    height: 66px;
+    margin-top: 17.5px;
+}
+
+.modal-header .btn-close{
+    background: transparent;
+    opacity: 1;
+}
+
+.modal-header i{
+    color: #fefefe;
+    font-size: 30px;
+}
+
+.modal-body{
+    width: 88%;
+    margin: 0 auto;
+    padding: 75px 0 0 0;
+    flex: unset;
+}
+
+.modal-body .modal-line{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 7px 0;
+    margin-bottom: 50px;
+    cursor: pointer;
+    transition: all .5s ease;
+    color: black;
+    border-bottom: 1px solid white;
+}
+
+.modal-body .modal-line:hover{
+    color: #fefefe;
+    border-bottom: 1px solid #fefefe;
+}
+
+.modal-line a{
+    font-size: 17px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    color: #fefefe;
+}
+
+.modal-line i{
+    color: currentColor;
+    font-size: 30px;
+    width: 35px;
+    margin-right: 15px;
+    padding: 0 0 3px 3px;
+}
+
+.navb-button{
+    width: 100%;
+    height: 47px;
+    background-color: #fefefe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    letter-spacing: 2px;
+    transition: all .5s ease;
+}
+
+.navb-button:hover{
+    background-color: black;
+    color: #fefefe;
+}
+
+.mobile-modal-footer{
+    width: 87%;
+    margin: 0 auto;
+    padding: 20% 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 25px;
+    color: black;
+}
+
+.mobile-modal-footer i:hover{
+    color: #fefefe;
+}
+
+
+
+.section-1{
+    width: 100vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-1 p{
+    font-size: 75px;
+    font-weight: 700;
+    color: black;
+    width: 90%;
+    text-align: center;
+}
+
+@media(max-width:767px){
+    .section-1 p{
+        font-size: 50px;
+        text-align: start;
+        width: 70%;
+        margin: auto;
+    }
+}
+
+/*footer*/
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #24262b;
+    padding: 70px 0;
+}
+.footer-col{
+    width: 25%;
+    padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #ffffff;
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #64d6f4;
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/*responsive*/
+@media(max-width: 767px){
+.footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+.footer-col{
+    width: 100%;
+}
+}
+
+/*index*/
+.diseños{
+    background-color: gainsboro;
+}
+.container{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container .cajasArmadas{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.cajaPcArmadas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    
+}
+.videosPc {
+    width: 22rem;
+    height: 19rem;
+    border: 1rem solid #8F27E1;
+    background-color: black;
+}
+.videosPc:hover {
+    border: 1rem solid #5e17eb;
+}
+.t1 {
+    font-size: 2.5rem;
+    color: black;
+    border-bottom:0.3rem solid #8F27E1;
+}
+.textoPcArmadas {
+    font-size: 1.5rem;
+    color: black;
+}
+.carrucel{
+    border-bottom:0.5rem solid #8F27E1;
+    border-top: 0.5rem solid #8F27E1;
+}
+.imagenContacto {
+    width: 50rem;
+    margin: 2rem;
+}
