@@ -330,7 +330,10 @@ ul{
 
 /*index*/
 .diseños{
-    background-color: gainsboro;
+background-color: #bbbbbb;
+}
+.diseñoSection {
+    border-bottom:0.3rem solid #8F27E1;
 }
 .container{
     margin-top: 2rem;
@@ -350,14 +353,15 @@ ul{
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 2rem;
-    
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 .videosPc {
     width: 22rem;
     height: 19rem;
     border: 1rem solid #8F27E1;
     background-color: black;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
 }
 .videosPc:hover {
     border: 1rem solid #5e17eb;
@@ -377,5 +381,28 @@ ul{
 }
 .imagenContacto {
     width: 50rem;
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+    border:0.3rem solid #8F27E1;;
+}
+@media(max-width:868px){
+    .imagenContacto{
+        width: 30rem;
+    }
+}
+@media(max-width:544px){
+    .imagenContacto{
+        width: 25rem;
+    }
+}
+@media(max-width:473px){
+    .imagenContacto{
+        width: 20rem;
+    }
+}
+@media(max-width:400px){
+    .videosPc{
+        width: 20rem;
+    }
 }
