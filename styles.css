@@ -359,13 +359,26 @@ background-color: #bbbbbb;
 .videosPc {
     width: 22rem;
     height: 19rem;
-    border: 1rem solid #8F27E1;
+    border: 0.3rem solid #8F27E1;
     background-color: black;
     box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
 }
-.videosPc:hover {
-    border: 1rem solid #5e17eb;
+.videosPc:hover.neon-box {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #5e17eb, 0 0 6px #5e17eb, 0 0 9px #5e17eb, 0 0 12px #5e17eb, 0 0 21px #5e17eb, 0 0 24px #5e17eb, 0 0 30px #5e17eb, 0 0 45px #5e17eb;
+    animation: neon-glow 1s ease-in-out infinite alternate;
 }
+
+@keyframes neon-glow {
+    0% {
+    box-shadow: 0 0 3px #5e17eb, 0 0 6px #5e17eb, 0 0 9px #5e17eb, 0 0 12px #5e17eb, 0 0 21px #5e17eb, 0 0 24px #5e17eb, 0 0 30px #5e17eb, 0 0 45px #5e17eb;
+    }
+    100% {
+    box-shadow: 0 0 6px #5e17eb, 0 0 9px #5e17eb, 0 0 12px #5e17eb, 0 0 21px #5e17eb, 0 0 24px #5e17eb, 0 0 30px #5e17eb, 0 0 45px #5e17eb, 0 0 60px #5e17eb;
+    }
+}
+
 .t1 {
     font-size: 2.5rem;
     color: black;
