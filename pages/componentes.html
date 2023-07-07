@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +7,7 @@
     <title>Responsive Navbar</title>
     <link rel="stylesheet" href="/fontawesome/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
     <header>
@@ -21,7 +20,7 @@
                     <a href="/">Inicio</a>
                 </div>
                 <div class="item">
-                    <a href="./pages/componentes.html">Componentes</a>
+                    <a href="/services">Componentes</a>
                 </div>
                 <div class="item">
                     <a href="/cases">Pc</a>
@@ -75,98 +74,60 @@
             </div>
         </div>
     </header>
-    <main class="diseños">
-        <section class="carrucel">
-            <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="./img/pc-armadas23.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/micros23.webp" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="./img/placas23.webp" class="d-block w-100" alt="...">
-                    </div>
-                </div>
+    <main>
+        <section class="container sectionArmadas diseñoSection"></section>
+        <div class="container">
+            <div class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="#">PC armadas</a></li>
+                    <ul>
+                        <li><a href="#">Básica</a></li>
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Alta</a></li>
+                    </ul>
+                    <li><a href="#">Componentes</a></li>
+                    <ul>
+                        <li><a href="#">Placas madres</a></li>
+                        <li><a href="#">Procesadores</a></li>
+                        <li><a href="#">Memorias RAM</a></li>
+                        <li><a href="#">Placas de video</a></li>
+                        <li><a href="#">Discos</a></li>
+                        <li><a href="#">Gabinetes</a></li>
+                        <li><a href="#">Fuentes</a></li>
+                    </ul>
+                    <li><a href="#">Periféricos</a></li>
+                    <ul>
+                        <li><a href="#">Teclados</a></li>
+                        <li><a href="#">Mouse</a></li>
+                        <li><a href="#">Auriculares</a></li>
+                    </ul>
+                    <li><a href="#">Monitores</a></li>
+                </ul>
             </div>
-        </section>
-        <section class="container sectionArmadas diseñoSection">
-            <div class="pcArmadas">
-                <p class="t1">Pc armadas</p>
-            </div>
-            <div class="cajasArmadas row ">
+        </div>
+        <div class="container">
+            <div class="cajasArmadas row">
                 <div class="cajaPcArmadas col">
                     <p class="textoPcArmadas">Pc Básica</p>
                     <video class="videosPc neon-box" autoplay loop src="./video/entrada.mp4"></video>
                 </div>
                 <div class="cajaPcArmadas col">
-                    <p class="textoPcArmadas">Pc Media</p>
-                    <video class="videosPc neon-box" autoplay loop src="./video/media.mp4"></video>
+                    <p class="textoPcArmadas">Pc Básica</p>
+                    <video class="videosPc neon-box" autoplay loop src="./video/entrada.mp4"></video>
                 </div>
                 <div class="cajaPcArmadas col">
-                    <p class="textoPcArmadas">Pc Alta</p>
-                    <video class="videosPc neon-box" autoplay loop src="./video/alta.mp4"></video>
-                </div>
-            </div>
-        </section>
-        <section class="container sectionArmadas diseñoSection">
-            <div class="pcArmadas">
-                <p class="t1">Arma tu PC</p>
-            </div>
-            <div class="cajasArmadas">
-                <div class="cajaPcArmadas">
                     <p class="textoPcArmadas">Pc Básica</p>
-                    <video class="videosPc neon-box" autoplay loop src="./video/up.mp4"></video>
+                    <video class="videosPc neon-box" autoplay loop src="./video/entrada.mp4"></video>
+                </div>
+                <div class="cajaPcArmadas col">
+                    <p class="textoPcArmadas">Pc Básica</p>
+                    <video class="videosPc neon-box" autoplay loop src="./video/entrada.mp4"></video>
                 </div>
             </div>
-        </section>
-        <section class="container">
-            <div>
-                <img class="imagenContacto" src="./img/banner.png" alt="">
-            </div>
-        </section>
+        </div>
     </main>
     <footer>
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="footer-col">
-                        <h4>Empresa</h4>
-                        <ul>
-                            <li><a href="#">Nosotros</a></li>
-                            <li><a href="#">Trabajo</a></li>
-                            <li><a href="#">Servicios</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Ayuda</h4>
-                        <ul>
-                            <li><a href="#">Preguntas frecuentes</a></li>
-                            <li><a href="#">Compras</a></li>
-                            <li><a href="#">Opciones de pagos</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Tienda</h4>
-                        <ul>
-                            <li><a href="#">Pc armadas</a></li>
-                            <li><a href="#">Componentes</a></li>
-                            <li><a href="#">Monitores</a></li>
-                            <li><a href="#">Periféricos</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-col">
-                        <h4>Redes</h4>
-                        <div class="social-links">
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js
     "></script>
