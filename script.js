@@ -27,59 +27,73 @@ function sinIva(NumA) {
 function resultado(operador, NumA, NumB) {
     switch (operador) {
         case '+':
-            console.log('El resultado es una suma');
+            alert('El resultado es una suma');
             return suma(NumA, NumB);
         case '-':
-            console.log('El resultado es una resta');
+            alert('El resultado es una resta');
             return resta(NumA, NumB);
         case '/':
-            console.log('El resultado es una division');
+            alert('El resultado es una division');
             return division(NumA, NumB);
         case '*':
-            console.log('El resultado es una division');
+            alert('El resultado es una multiplicación');
             return multiplicación(NumA, NumB);
         case 'iva21':
-            console.log('El resultado iva incluido es:');
+            alert('El resultado iva incluido es:');
             return iva21(NumA);
         case 'sinIva':
-            console.log('El resultado iva excluido es:');
+            alert('El resultado iva excluido es:');
             return sinIva(NumA);
         default:
-            console.log('Operador no válido');
+            alert('Operador no válido');
             break;
     }
 }
 
-//productos
-let pizza = 2000 //pizza $2000
-let empanada = 400 //empanada $400
+function pedirOpcion() {
+    let opcion = prompt("Selecciona una opción:");
+    return opcion; 
+}
 
+function pedirNumeros() {
+    let operacion = prompt("operacion (+,-,/,iva21,sinIva)");
+    let num1,num2;
+
+    if ((operacion == "+" ) || (operacion == "-" ) || (operacion == "/") || (operacion == "*")){
+        num1 = parseFloat(prompt("numero 1"))
+        num2 = parseFloat(prompt("numero 2"))
+    }else{
+        num1 = parseFloat(prompt("numero 1"))
+    }
+
+    let result = resultado(operacion, num1, num2);
+    alert(result);
+}
 
 //menu
 function mostrarMenu() {
-    console.log("=== MENÚ ===");
-    console.log("1. Calculadora");
-    console.log("2. Carrito de compras");
-    console.log("4. Salir");
-    console.log("==============");
+    alert("=== MENÚ ===");
+    alert("1. Calculadora");
+    alert("2. Carrito de compras");
+    alert("3. Salir");
 }
 
 function seleccionarOpcion(opcion) {
     switch (opcion) {
         case "1":
-            console.log("Has seleccionado la Opción 1");
-            resultado(operador, NumA, NumB)
+            alert("Has seleccionado la Opción 1");
+            pedirNumeros()
             // Lógica para la opción 1
             break;
         case "2":
-            console.log("Has seleccionado la Opción 2");
+            alert("Has seleccionado la Opción 2");
             // Lógica para la opción 2
             break;
-        case "4":
-            console.log("¡Hasta luego!");
+        case "3":
+            alert("¡Hasta luego!");
             return;
         default:
-            console.log("Opción no válida");
+            alert("Opción no válida");
             break;
     }
 
@@ -87,21 +101,14 @@ function seleccionarOpcion(opcion) {
     pedirOpcion();
 }
 
-function pedirOpcion() {
-    let opcion = prompt("Selecciona una opción:");
-    seleccionarOpcion(opcion);
-}
-
-function pedirNumeros() {
-    let operacion = prompt("operacion (+,-,/,iva21,sinIva)");
-    let num1 = prompt("numero 1")
-    let num2 = prompt("numero 2")
-
-    let result = resultado(operacion, num1, num2);
-    console.log(result);
-}
-
 // Inicio del programa
+
 mostrarMenu();
-pedirOpcion();
-pedirNumeros()
+let opcion = pedirOpcion();
+
+while (opcion !== "3") {
+    pedirNumeros();
+    opcion = pedirOpcion();
+}
+
+alert("Hasta luego!");
