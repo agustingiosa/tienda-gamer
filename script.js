@@ -24,6 +24,7 @@ function sinIva(NumA) {
     return NumA / 1.21;
 }
 
+//esta función se encargar de dar los resultados dependiendo de la operación dada
 function resultado(operador, NumA, NumB) {
     switch (operador) {
         case '+':
@@ -50,11 +51,13 @@ function resultado(operador, NumA, NumB) {
     }
 }
 
+//esta función se encarga de pedir un numero de opción
 function pedirOpcion() {
     let opcion = prompt("Selecciona una opción:");
     return opcion; 
 }
 
+//esta función se encarga de pedir los números a operar dependiendo de la operación
 function pedirNumeros() {
     let operacion = prompt("operacion (+,-,/,iva21,sinIva)");
     let num1,num2;
@@ -70,6 +73,18 @@ function pedirNumeros() {
     alert(result);
 }
 
+function carrito() {
+    let motherboard = 1000;
+    let monitor = 1000;
+    
+    let total = motherboard + monitor;
+    
+    alert("Carrito de compra:\n\n" +
+        "Motherboard: $" + motherboard + "\n" +
+        "Monitor: $" + monitor + "\n" +
+        "Total: $" + total);
+}
+
 //menu
 function mostrarMenu() {
     alert("=== MENÚ ===");
@@ -78,16 +93,18 @@ function mostrarMenu() {
     alert("3. Salir");
 }
 
+//esta función utiliza la variable opción cargada anteriormente para indicar la opción elegida
 function seleccionarOpcion(opcion) {
     switch (opcion) {
         case "1":
-            alert("Has seleccionado la Opción 1");
+            alert("Has seleccionado la Opción 1: Calculadora");
             pedirNumeros()
-            // Lógica para la opción 1
+            // calculadora
             break;
         case "2":
-            alert("Has seleccionado la Opción 2");
-            // Lógica para la opción 2
+            alert("Has seleccionado la Opción 2: Carrito");
+            carrito();
+            // carrito
             break;
         case "3":
             alert("¡Hasta luego!");
@@ -107,7 +124,14 @@ mostrarMenu();
 let opcion = pedirOpcion();
 
 while (opcion !== "3") {
-    pedirNumeros();
+    if (opcion === "1") {
+        pedirNumeros();
+    } else if (opcion === "2") {
+        carrito();
+    } else {
+        alert("Opción no válida");
+    }
+    
     opcion = pedirOpcion();
 }
 
