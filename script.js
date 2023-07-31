@@ -24,6 +24,9 @@ function sinIva(NumA) {
     return NumA / 1.21;
 }
 
+//arreglo para guardas operaciones y luego poder verlas en forma de historial
+let operacionesAnteriores = [];
+
 //esta función se encargar de dar los resultados dependiendo de la operación dada
 function resultado(operador, NumA, NumB) {
     switch (operador) {
@@ -70,19 +73,47 @@ function pedirNumeros() {
     }
 
     let result = resultado(operacion, num1, num2);
+    operacionesAnteriores.push(`${num1} ${operacion} ${num2} = ${result}`);
     alert(result);
+
+
 }
 
-function carrito() {
-    let motherboard = 1000;
-    let monitor = 1000;
+//esta función va a recorrer el arreglo y mostrar las operaciones anteriores
+function mostrarOperacionesAnteriores() {
+    if (operacionesAnteriores.length === 0) {
+        alert("No hay operaciones anteriores.");
+    } else {
+        alert("Operaciones anteriores:");
+        for (let operacion of operacionesAnteriores) {
+            alert(operacion);
+        }
+    }
+}
+
+//esta funcion contendra los productos disponibles en un arreglo
+function stockDisponible() {
+    class Producto {
+        constructor(nombre, precio, categoria) {
+            this.disponible = true;
+            this.precio = precio;
+            this.nombre = nombre;
+            this.categoria = categoria;
+        }
+    }
+
+    const laptopHP = new Producto("Laptop HP", 800, "Laptops");
+    const monitorSamsung = new Producto("Monitor Samsung", 300, "Monitores");
+    const tecladoLogitech = new Producto("Teclado Logitech", 50, "Accesorios");
+
+    const productosDisponibles = [laptopHP, monitorSamsung, tecladoLogitech];
     
-    let total = motherboard + monitor;
-    
-    alert("Carrito de compra:\n\n" +
-        "Motherboard: $" + motherboard + "\n" +
-        "Monitor: $" + monitor + "\n" +
-        "Total: $" + total);
+    for (let producto of productosDisponibles) {
+        alert("Nombre:" + producto.nombre +
+            "Precio:"+ producto.precio +
+            "Categoría:" + producto.categoria +
+            "Disponible:" + producto.disponible)
+    }
 }
 
 //menu
@@ -90,7 +121,8 @@ function mostrarMenu() {
     alert("=== MENÚ ===");
     alert("1. Calculadora");
     alert("2. Carrito de compras");
-    alert("3. Salir");
+    alert("3. Mostrar operaciones anteriores");
+    alert("4. Salir");
 }
 
 //esta función utiliza la variable opción cargada anteriormente para indicar la opción elegida
@@ -103,10 +135,14 @@ function seleccionarOpcion(opcion) {
             break;
         case "2":
             alert("Has seleccionado la Opción 2: Carrito");
-            carrito();
+            stockDisponible();;
             // carrito
             break;
         case "3":
+            mostrarOperacionesAnteriores();
+            break;
+            //historial
+        case "4":
             alert("¡Hasta luego!");
             return;
         default:
@@ -123,11 +159,13 @@ function seleccionarOpcion(opcion) {
 mostrarMenu();
 let opcion = pedirOpcion();
 
-while (opcion !== "3") {
+while (opcion !== "4") {
     if (opcion === "1") {
         pedirNumeros();
     } else if (opcion === "2") {
-        carrito();
+        stockDisponible();
+    } else if (opcion === "3") {
+        mostrarOperacionesAnteriores();
     } else {
         alert("Opción no válida");
     }
