@@ -35,28 +35,6 @@
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    ...
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -65,40 +43,6 @@
                 <a href="#" data-bs-toggle="modal" data-bs-target="#navbModal">
                     <i class="fa-solid fa-bars"></i>
                 </a>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="navbModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <img src="./img/Loggit aoPC.png" alt="Logo">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                                    class="fa-solid fa-xmark"></i></button>
-                        </div>
-                        <div class="modal-body">
-
-                            <div class="modal-line">
-                                <i class="fa-solid fa-house"></i><a href="/">Home</a>
-                            </div>
-                            <div class="modal-line">
-                                <i class="fa-solid fa-bell-concierge"></i><a href="/services">Services</a>
-                            </div>
-                            <div class="modal-line">
-                                <i class="fa-solid fa-file-lines"></i> <a href="/cases">Cases</a>
-                            </div>
-                            <div class="modal-line">
-                                <i class="fa-solid fa-circle-info"></i><a href="/about">About</a>
-                            </div>
-                            <a href="/contact" class="navb-button" type="button">Let's talk</a>
-                        </div>
-                        <div class="mobile-modal-footer">
-                            <a target="_blank" href="#"><i class="fa-brands fa-instagram"></i></a>
-                            <a target="_blank" href="#"><i class="fa-brands fa-linkedin-in"></i></a>
-                            <a target="_blank" href="#"><i class="fa-brands fa-youtube"></i></a>
-                            <a target="_blank" href="#"><i class="fa-brands fa-facebook"></i></a>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </header>
@@ -118,8 +62,50 @@
                 </div>
             </div>
         </section>
-        <section class="container sectionArmadas diseñoSection">
+        <section id="contenedor_productos" class="cajasArmadas row">
+    
+        </section>
+        <section>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Carrito</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" id="contenedor_carrito">
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Seguir comprando</button>
+                            <button type="button" class="btn btn-danger">Finalizar compra</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
             
+        </section>
+        <section class="container sectionArmadas diseñoSection">
+            <section class="container">
+                <!-- Formulario para agregar un nuevo producto -->
+                <h2>NUEVO PRODUCTO</h2>
+                <form id="formNuevoProducto">
+                    <label for="nombre">Nombre del producto:</label>
+                    <input type="text" id="nombre" required><br>
+            
+                    <label for="precio">Precio:</label>
+                    <input type="number" id="precio" required><br>
+            
+                    <label for="descripcion">Descripción:</label>
+                    <textarea id="descripcion" required></textarea><br>
+            
+                    <label for="img">URL de la imagen:</label>
+                    <input type="text" id="img" required><br>
+            
+                    <button type="submit">Agregar Producto</button>
+                </form>
+            </section>    
         </section>
         <section class="container sectionArmadas diseñoSection">
             <div class="pcArmadas">

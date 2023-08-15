@@ -564,9 +564,22 @@ a.article:hover {
     color: #fff !important;
 }
 
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#formNuevoProducto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1rem solid white;
+    width: 20rem;
+    margin-bottom: 2rem;
+}
 
 #content {
     width: 100%;
@@ -575,9 +588,62 @@ a.article:hover {
     transition: all 0.3s;
 }
 
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
+#contenedor_productos{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 2rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem;
+    width: 22rem;
+    height: 19rem;
+    border: 0.3rem solid #8F27E1;
+    background-color: black;
+    box-shadow: 1rem 1rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.card:hover.card {
+    border: 2px solid transparent;
+    border-radius: 5px;
+    box-shadow: 0 0 3px #5e17eb, 0 0 6px #5e17eb, 0 0 9px #5e17eb, 0 0 12px #5e17eb, 0 0 21px #5e17eb, 0 0 24px #5e17eb, 0 0 30px #5e17eb, 0 0 45px #5e17eb;
+    animation: neon-glow 1s ease-in-out infinite alternate;
+}
+
+.objetoCarrito {
+    border: 0.2rem solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    /* Estilos para la caja */
+}
+
+.card-title {
+    margin-bottom: 0; /* Reduce el margen inferior del título */
+}
+
+.card-text {
+    margin-bottom: 0; /* Reduce el margen inferior del párrafo */
+}
+
+.card-price {
+    margin-top: 0; /* Reduce el margen superior del precio */
+}
+
+.card-img-top {
+    height: 7rem;
+    width: 7rem;
+}
 
 @media (max-width: 768px) {
     #sidebar {
