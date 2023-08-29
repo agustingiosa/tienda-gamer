@@ -17,14 +17,14 @@ class Carrito {
         this.listaCarrito = []
     }
 
-    levantarStorage() {
+    cargarStorage() {
         let listaCarritoJSON = localStorage.getItem("listaCarrito");
         this.listaCarrito = JSON.parse(listaCarritoJSON) || [];
-    
+
         console.log("Datos del almacenamiento local cargados:", this.listaCarrito);
     }
 
-    guardarEnStorage(){
+    guardarEnStorage() {
         let listaCarritoJSON = JSON.stringify(this.listaCarrito)
         localStorage.setItem("listaCarrito", listaCarritoJSON)
     }
@@ -32,18 +32,22 @@ class Carrito {
     agregar(productoAgregar) {
         let existeElProducto = this.listaCarrito.some(producto => producto.id == productoAgregar.id)
 
-        if( existeElProducto ){
-            const producto = this.listaCarrito.find(producto => producto.id ==productoAgregar.id)
-            producto.cantidad = producto.cantidad +1
-        }else{
+        if (existeElProducto) {
+            const producto = this.listaCarrito.find(producto => producto.id == productoAgregar.id)
+            producto.cantidad = producto.cantidad + 1
+        } else {
             this.listaCarrito.push(productoAgregar)
         }
     }
 
-    eliminar(productoEliminar){
+    eliminar(productoEliminar) {
         let producto = this.listaCarrito.find(producto => producto.id == productoEliminar.id)
         let indice = this.listaCarrito.indexOf(producto)
-        this.listaCarrito.splice(indice,1)
+        this.listaCarrito.splice(indice, 1)
+    }
+
+    eliminarTodosLosProductos() {
+        this.listaCarrito = []; 
     }
 
     calcularTotal() {
@@ -69,7 +73,7 @@ class Carrito {
                             <h5 class="card-title">${producto.nombre}</h5>
                             <p class="card-text">Precio: $${producto.precio}</p>
                             <p class="card-text">Cantidad: ${producto.cantidad}</p>
-                            <button class="btn btn-danger" id="eliminar-${producto.id}"><i class="fa-solid fa-trash"></i></button>
+                            <button class="btn btn-danger botonEliminarDeCarrito" id="eliminar-${producto.id}"><i class="fa-solid fa-trash"></i></button>
                         </div>
                     </div>
                 </div>
@@ -79,15 +83,29 @@ class Carrito {
         contenedor_carrito.innerHTML += `<p class="total">Total: $${this.calcularTotal()}</p>`;
 
         this.listaCarrito.forEach(producto => {
-            let btn_eliminar = document.getElementById(`eliminar-${producto.id}`)
+            let btn_eliminar = document.getElementById(`eliminar-${producto.id}`);
             btn_eliminar.addEventListener("click", () => {
-                this.eliminar(producto)
-                this.guardarEnStorage()
-                this.mostrarProductos()
-            })
-        })
+                // Muestra la ventana emergente de SweetAlert2
+                Swal.fire({
+                    icon: 'warning',
+                    title: '¿Eliminar producto?',
+                    text: `¿Estás seguro que deseas eliminar ${producto.nombre} del carrito?`,
+                    showCancelButton: true,
+                    confirmButtonText: 'Eliminar',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        this.eliminar(producto);
+                        this.guardarEnStorage();
+                        this.mostrarProductos();
+                    }
+                });
+            });
+        });
     }
 }
+
+
 
 class claseProducto {
     constructor() {
@@ -106,7 +124,7 @@ class claseProducto {
 
     agregar(producto) {
         this.listaProductos.push(producto);
-        
+
     }
 
     // Método para agregar un producto desde el formulario
@@ -123,18 +141,18 @@ class claseProducto {
     }
 
     mostrarProductos() {
-        let contenedor_productos = document.getElementById("contenedor_productos");
-        contenedor_productos.innerHTML = "";
+        let contenedorProductos = document.getElementById("contenedorProductos");
+        contenedorProductos.innerHTML = "";
 
         this.listaProductos.forEach(producto => {
-            contenedor_productos.innerHTML += `<div class="card" style="width: 18rem;">
+            contenedorProductos.innerHTML += `<div class="card" style="width: 18rem;">
                 <img src="${producto.img}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${producto.nombre}</h5>
                     <p class="card-text">${producto.descripcion}</p>
                     <p class="card-text">$${producto.precio}</p>
                     <p class="card-text">id:${producto.id}</p>
-                    <a href="#" class="btn btn-primary" id="ap-${producto.id}">Añadir al carrito</a>
+                    <a href="#" class="btn btn-primary botonCarrito" id="ap-${producto.id}">Añadir al carrito</a>
                 </div>
             </div>`;
         });
@@ -151,12 +169,11 @@ class claseProducto {
 }
 
 const carrito = new Carrito()
-carrito.levantarStorage()
+carrito.cargarStorage()
 carrito.mostrarProductos()
 
-const controlador_productos = new claseProducto()
-controlador_productos.cargarProductosDesdeStorage();
-controlador_productos.mostrarProductos();
+const controladorDeProductos = new claseProducto()
+
 
 function agregarNuevoProducto(nombre, precio, descripcion, img) {
     const nuevoProducto = new Producto(nombre, precio, descripcion, img);
@@ -175,9 +192,9 @@ function agregarProductoDesdeFormulario(event) {
     const img = document.getElementById('img').value;
 
     const nuevoProducto = agregarNuevoProducto(nombre, precio, descripcion, img);
-    controlador_productos.agregar(nuevoProducto);
+    controladorDeProductos.agregar(nuevoProducto);
 
-    controlador_productos.mostrarProductos();
+    controladorDeProductos.mostrarProductos();
 
     formNuevoProducto.reset();
 }
@@ -191,9 +208,69 @@ const producto2 = new Producto("Intel i5", 200000, "Descripción del producto 2"
 const producto3 = new Producto("Intel i7", 300000, "Descripción del producto 3", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-tqoWqUJC975trvUfoUZxnG-nFgn-tFPMKlzOvO3MnwV2EAhmSe7&usqp=CAE&s");
 
 
-controlador_productos.agregar(producto1);
-controlador_productos.agregar(producto2);
-controlador_productos.agregar(producto3);
+controladorDeProductos.agregar(producto1);
+controladorDeProductos.agregar(producto2);
+controladorDeProductos.agregar(producto3);
 
 
-controlador_productos.mostrarProductos();
+controladorDeProductos.mostrarProductos();
+
+// Obtén una lista de todos los enlaces con la clase "btn-primary"
+const alertas = document.querySelectorAll('.botonCarrito');
+
+// Agrega un escuchador de eventos a cada enlace
+alertas.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+
+        // Muestra la ventana emergente con el mensaje de error
+        Swal.fire({
+            icon: 'success',
+            title: 'Hecho!',
+            text: 'Agregaste el producto al carrito',
+        });
+    });
+});
+
+
+// Obtén una lista de todos los enlaces con la clase "botonFinalizarCompra"
+const finalizar = document.querySelectorAll('.botonFinalizarCompra');
+
+// Agrega un escuchador de eventos a cada enlace
+finalizar.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        // Muestra la ventana emergente de SweetAlert2
+        Swal.fire({
+            icon: 'warning',
+            title: '¿Finalizar compra?',
+            text: '¿Estás seguro que deseas finalizar la compra y vaciar el carrito?',
+            showCancelButton: true,
+            confirmButtonText: 'Finalizar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Lógica para eliminar todos los productos del carrito
+                carrito.eliminarTodosLosProductos(); // Ajusta esto según tu implementación
+                carrito.guardarEnStorage(); // Asegúrate de guardar el carrito actualizado en el almacenamiento
+                carrito.mostrarProductos(); // Asegúrate de actualizar la vista del carrito
+                
+                // Muestra la ventana emergente de éxito
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Compra realizada',
+                    text: 'El carrito ha sido vaciado',
+                });
+            }
+        });
+    });
+});
+
+async function levantarProductos () {
+    let respuesta = await fetch ("simulador.json")
+    let listaProductos = respuesta.json()
+    mostrarLosProductos (listaProductos)
+}
+
+levantarProductos()

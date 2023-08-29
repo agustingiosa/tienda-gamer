@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "nombre": "ryzen 5",
+        "precio": 150000,
+        "descripcion": "Descripción del producto 1",
+        "img":"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTBn-of-QyjVLKdv_Pibh0AZfZwKQeNKmMCq3mWrA8b7uf_HwYO-6vCSsFzYHp88pOkO5QaQl6wzWZfj-ryzJJKpyKv3R9KyMqvGPVrMnTRma-NYj8x-g2YqQ&usqp=CAc"
+    },
+    {
+        "id": 2,
+        "nombre": "Intel i5",
+        "precio": 200000,
+        "descripcion": "Descripción del producto 2",
+        "img":"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTBn-of-QyjVLKdv_Pibh0AZfZwKQeNKmMCq3mWrA8b7uf_HwYO-6vCSsFzYHp88pOkO5QaQl6wzWZfj-ryzJJKpyKv3R9KyMqvGPVrMnTRma-NYj8x-g2YqQ&usqp=CAc"
+    },
+    {
+        "id": 3,
+        "nombre": "Intel i7",
+        "precio": 300000,
+        "descripcion": "Descripción del producto 3",
+        "img":"https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTBn-of-QyjVLKdv_Pibh0AZfZwKQeNKmMCq3mWrA8b7uf_HwYO-6vCSsFzYHp88pOkO5QaQl6wzWZfj-ryzJJKpyKv3R9KyMqvGPVrMnTRma-NYj8x-g2YqQ&usqp=CAc"
+    }
+]

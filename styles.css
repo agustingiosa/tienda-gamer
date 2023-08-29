@@ -50,14 +50,13 @@ header .navb-items{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    letter-spacing: 3px;
 }
 
 header .item{
     text-align: center;
-    margin-inline: 15%;
+    margin-inline: 5%;
+    word-spacing: 30rem;
     font-size: 20px;
-    letter-spacing: 3px;
     color: white;
     padding: 5px 0;
     transition: all .1s ease;
@@ -588,7 +587,7 @@ a.article:hover {
     transition: all 0.3s;
 }
 
-#contenedor_productos{
+#contenedorProductos{
     display: flex;
     justify-content: center;
     align-items: center;

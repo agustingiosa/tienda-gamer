@@ -36,6 +36,9 @@
                         <i class="fa-solid fa-cart-shopping"></i>
                     </button>
                 </div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalPrincipal">
+                    <i class="fa-solid fa-user"></i>
+                </button>
             </div>
 
             <!-- Button trigger modal -->
@@ -46,6 +49,7 @@
             </div>
         </div>
     </header>
+
     <main class="diseños">
         <section class="carrucel">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
@@ -62,11 +66,11 @@
                 </div>
             </div>
         </section>
-        <section id="contenedor_productos" class="cajasArmadas row">
+        <section id="contenedorProductos" class="cajasArmadas row">
     
         </section>
         <section>
-            <!-- Modal -->
+            <!-- Modal carrito -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -79,12 +83,46 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Seguir comprando</button>
-                            <button type="button" class="btn btn-danger">Finalizar compra</button>
+                            <button type="button" class="btn btn-danger botonFinalizarCompra">Finalizar compra</button>
                         </div>
                     </div>
                 </div>
             </div>
-            
+            <!-- Modal log in -->
+        <div class="modal fade" id="modalPrincipal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Iniciar sesión</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="tab-pane fade show active" id="login-form" role="tabpanel" aria-labelledby="login-tab">
+                            <div id="login-form">
+                                <input type="text" id="username" placeholder="Nombre de usuario">
+                                <input type="password" id="password" placeholder="Contraseña">
+                                <button id="login-button">Iniciar sesión</button>
+                            </div>
+                            <div id="user-info" style="display: none;">
+                                <p>Bienvenido, <span id="logged-in-user"></span>!</p>
+                                <button id="logout-button">Cerrar sesión</button>
+                            </div>
+                        </div>
+                        
+                        <button id="show-register-form" class="btn btn-primary">
+                            Registrarse
+                        </button>
+                        <div id="registration-form" style="display: none;">
+                            <div id="registration-form">
+                                <input type="text" id="register-username" placeholder="Nombre de usuario">
+                                <input type="password" id="register-password" placeholder="Contraseña">
+                                <button id="register-button">Registrarse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </section>
         <section class="container sectionArmadas diseñoSection">
             <section class="container">
@@ -184,9 +222,10 @@
                 </div>
             </div>
         </footer>
-        <script src="script.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js
-    "></script>
+        <script src="./scripts/script.js"></script>
+        <script src="./scripts/login.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
