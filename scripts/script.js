@@ -130,15 +130,18 @@ class claseProducto {
 
     }
 
-    //agrega un producto desde el formulario 
     agregarProductoDesdeFormulario() {
         const nombre = document.getElementById('nombre').value;
         const precio = parseFloat(document.getElementById('precio').value);
         const descripcion = document.getElementById('descripcion').value;
-        const img = document.getElementById('imagen').value;
+        const img = document.getElementById('img').value;
 
-        const nuevoProducto = new Producto(nombre, precio, descripcion, img);
+        const nuevoProducto = agregarNuevoProducto(nombre, precio, descripcion, img);
         this.agregar(nuevoProducto);
+
+        this.guardarProductosEnStorage();
+
+        this.cargarProductosDesdeStorage();
 
         this.mostrarProductos();
     }
