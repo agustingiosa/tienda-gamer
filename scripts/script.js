@@ -1,3 +1,4 @@
+//crea los productos y le agrego automaticamente un id
 class Producto {
     static lastId = 0;
 
@@ -12,23 +13,25 @@ class Producto {
         Producto.lastId = this.id;
     }
 }
+
+//crea el carrito de compras
 class Carrito {
     constructor() {
         this.listaCarrito = []
     }
-
+    //carga el storage para los items del carrito
     cargarStorage() {
         let listaCarritoJSON = localStorage.getItem("listaCarrito");
         this.listaCarrito = JSON.parse(listaCarritoJSON) || [];
 
         console.log("Datos del almacenamiento local cargados:", this.listaCarrito);
     }
-
+    //guarda los items del carrito en el local storage
     guardarEnStorage() {
         let listaCarritoJSON = JSON.stringify(this.listaCarrito)
         localStorage.setItem("listaCarrito", listaCarritoJSON)
     }
-
+    //agrega items al carrito y me suma 1 en la cantidad si ya hay 1 igual agregado
     agregar(productoAgregar) {
         let existeElProducto = this.listaCarrito.some(producto => producto.id == productoAgregar.id)
 
@@ -39,17 +42,17 @@ class Carrito {
             this.listaCarrito.push(productoAgregar)
         }
     }
-
+    //elimina el item especifico del carrito
     eliminar(productoEliminar) {
         let producto = this.listaCarrito.find(producto => producto.id == productoEliminar.id)
         let indice = this.listaCarrito.indexOf(producto)
         this.listaCarrito.splice(indice, 1)
     }
-
+    //elimina todos los items del carrito
     eliminarTodosLosProductos() {
         this.listaCarrito = []; 
     }
-
+    //calcula el total del carrito
     calcularTotal() {
         let total = 0;
         for (const producto of this.listaCarrito) {
@@ -57,7 +60,7 @@ class Carrito {
         }
         return total;
     }
-
+    //muestra los productos
     mostrarProductos() {
         let contenedor_carrito = document.getElementById('contenedor_carrito')
         contenedor_carrito.innerHTML = ""
@@ -81,11 +84,11 @@ class Carrito {
         })
 
         contenedor_carrito.innerHTML += `<p class="total">Total: $${this.calcularTotal()}</p>`;
-
+        //elimina un item en especifico desde el carrito 
         this.listaCarrito.forEach(producto => {
             let btn_eliminar = document.getElementById(`eliminar-${producto.id}`);
             btn_eliminar.addEventListener("click", () => {
-                // Muestra la ventana emergente de SweetAlert2
+                //muestra el alerta 
                 Swal.fire({
                     icon: 'warning',
                     title: '¿Eliminar producto?',
@@ -106,7 +109,7 @@ class Carrito {
 }
 
 
-
+//crea la clase producto 
 class claseProducto {
     constructor() {
         this.listaProductos = [];
@@ -127,7 +130,7 @@ class claseProducto {
 
     }
 
-    // Método para agregar un producto desde el formulario
+    //agrega un producto desde el formulario 
     agregarProductoDesdeFormulario() {
         const nombre = document.getElementById('nombre').value;
         const precio = parseFloat(document.getElementById('precio').value);
@@ -183,7 +186,7 @@ function agregarNuevoProducto(nombre, precio, descripcion, img) {
 
 const formNuevoProducto = document.getElementById('formNuevoProducto');
 
-// Función para agregar productos desde la web
+//agrega productos desde la web
 function agregarProductoDesdeFormulario(event) {
 
     const nombre = document.getElementById('nombre').value;
@@ -199,10 +202,9 @@ function agregarProductoDesdeFormulario(event) {
     formNuevoProducto.reset();
 }
 
-// Agregar el evento de envío del formulario
 formNuevoProducto.addEventListener('submit', agregarProductoDesdeFormulario);
 
-//creo nuevos productos por fuera del formulario
+//crea nuevos productos por fuera del formulario
 const producto1 = new Producto("Ryzen 5", 150000, "Descripción del producto 1", "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTBn-of-QyjVLKdv_Pibh0AZfZwKQeNKmMCq3mWrA8b7uf_HwYO-6vCSsFzYHp88pOkO5QaQl6wzWZfj-ryzJJKpyKv3R9KyMqvGPVrMnTRma-NYj8x-g2YqQ&usqp=CAc");
 const producto2 = new Producto("Intel i5", 200000, "Descripción del producto 2", "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRBNVXnOJhM_ikMhDe1BvhsBMn-xRJluT2Fc9HlF4H-Ig37LqkgajdlJvWF1pqDZN1oqOSXE0myrNPFyydzUc7-HJTgP1PtI8Rj0-xUu76f&usqp=CAc");
 const producto3 = new Producto("Intel i7", 300000, "Descripción del producto 3", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSt-tqoWqUJC975trvUfoUZxnG-nFgn-tFPMKlzOvO3MnwV2EAhmSe7&usqp=CAE&s");
@@ -215,15 +217,13 @@ controladorDeProductos.agregar(producto3);
 
 controladorDeProductos.mostrarProductos();
 
-// Obtén una lista de todos los enlaces con la clase "btn-primary"
 const alertas = document.querySelectorAll('.botonCarrito');
 
-// Agrega un escuchador de eventos a cada enlace
+//agrega un alerta al agregar items al carrito
 alertas.forEach(link => {
     link.addEventListener('click', (event) => {
-        event.preventDefault(); // Evita el comportamiento predeterminado del enlace
+        event.preventDefault();
 
-        // Muestra la ventana emergente con el mensaje de error
         Swal.fire({
             icon: 'success',
             title: 'Hecho!',
@@ -232,16 +232,13 @@ alertas.forEach(link => {
     });
 });
 
-
-// Obtén una lista de todos los enlaces con la clase "botonFinalizarCompra"
+//boton finalizar compra, vaciando el carrito 
 const finalizar = document.querySelectorAll('.botonFinalizarCompra');
 
-// Agrega un escuchador de eventos a cada enlace
 finalizar.forEach(link => {
     link.addEventListener('click', (event) => {
         event.preventDefault();
 
-        // Muestra la ventana emergente de SweetAlert2
         Swal.fire({
             icon: 'warning',
             title: '¿Finalizar compra?',
@@ -251,12 +248,10 @@ finalizar.forEach(link => {
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Lógica para eliminar todos los productos del carrito
-                carrito.eliminarTodosLosProductos(); // Ajusta esto según tu implementación
-                carrito.guardarEnStorage(); // Asegúrate de guardar el carrito actualizado en el almacenamiento
-                carrito.mostrarProductos(); // Asegúrate de actualizar la vista del carrito
+                carrito.eliminarTodosLosProductos(); 
+                carrito.guardarEnStorage(); 
+                carrito.mostrarProductos(); 
                 
-                // Muestra la ventana emergente de éxito
                 Swal.fire({
                     icon: 'success',
                     title: 'Compra realizada',
